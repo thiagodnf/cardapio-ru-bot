@@ -68,7 +68,7 @@ Caso você queria ser notificado da presença de algum item em específico no ca
 
 ### Monitorar Campus
 
-Por padrão o bot monitora o cardápio do Centro Politécnico. Porém, você pode trocar o campus usando os seguintes comandos.
+Por padrão o bot monitora o cardápio do Centro Politécnico da UFPR. Porém, você pode trocar o campus usando os seguintes comandos.
 
 | Comando           | Descrição                               | Parâmetros  | Exemplo                   |
 |-------------------|-----------------------------------------|-------------|---------------------------|
