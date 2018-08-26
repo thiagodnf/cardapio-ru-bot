@@ -21,6 +21,10 @@ public class Campuses {
 		campuses.put("ufpr_jandaia", "Jandaia do Sul");
 	}
 	
+	private Campuses(){
+		throw new UnsupportedOperationException();
+	}
+	
 	public static boolean isValid(String university, String campus) {
 		return campuses.containsKey(university + "_" + campus);
 	}
