@@ -2,7 +2,7 @@
 <img src="https://raw.githubusercontent.com/thiagodnf/cardapio-ru-bot/master/src/main/resources/images/logo.png" width="130px"/>
 
 
-# UFPR Cardápio RU Bot
+# Cardápio RU Bot
 
 Bot para Telegram que monitora e alerta o cardápio do RU da sua universidade
 
