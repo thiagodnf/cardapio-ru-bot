@@ -35,12 +35,12 @@ public class SendAlertsTask {
 	@Autowired
 	private TelegramBot telegramBot;
 	
-	@Scheduled(cron = "0 50 18 ? * *")
+	@Scheduled(cron = "0 00 11 ? * *")
 	public void sendLunch() {
 		execute("lunch");
 	}
 	
-	@Scheduled(cron = "0 00 17 ? * *")
+	@Scheduled(cron = "0 30 17 ? * *")
 	public void sendDinner() {
 		execute("dinner");
 	}
