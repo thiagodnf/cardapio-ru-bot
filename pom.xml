@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>thiagodnf.cardapioru.bot</groupId>
-	<artifactId>cardapioru-bot</artifactId>
+	<artifactId>cardapio-ru-bot</artifactId>
 	<version>1.0.0</version>
 	<name>Cardápio RU Bot</name>
 	<description>Bot para Telegram que monitora e alerta o cardápio do RU da sua universidade</description>
@@ -91,7 +91,6 @@
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
-			<version>2.10</version>
 		</dependency>
 	</dependencies>
 	<build>
