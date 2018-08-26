@@ -25,17 +25,17 @@ O bot funciona com as seguintes universidades:
 
 O Bot monitora os seguintes campus:
 
-| Chave               |     Campus          |
-|---------------------|---------------------|
-| politecnico  | Centro Politécnico  |
-| central             | Central             |
-| botanico            | Jardim Botânico     |
-| agrarias            | Agrárias            |
-| mirassol            | Mirassol            |
-| litoral             | UFPR Litoral        |
-| cem                 | CEM                 |
-| palotina            | Palotina            |
-| jandaia      | Jandaia do Sul      |
+|Universidade | Chave               |     Campus          |
+|-------------|---------------------|---------------------|
+|   UFPR      | politecnico         | Centro Politécnico  |
+|             | central             | Central             |
+|             | botanico            | Jardim Botânico     |
+|             | agrarias            | Agrárias            |
+|             | mirassol            | Mirassol            |
+|             | litoral             | UFPR Litoral        |
+|             | cem                 | CEM                 |
+|             | palotina            | Palotina            |
+|             | jandaia             | Jandaia do Sul      |
 
 ## Como adicionar no meu Telegram?
 
