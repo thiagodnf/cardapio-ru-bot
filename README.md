@@ -4,20 +4,22 @@
 
 # UFPR Cardápio RU Bot
 
-Bot para Telegram do Cardápio do RU da UFPR
+Bot para Telegram que monitora e alerta o cardápio do RU da sua universidade
 
 [![Build Status](https://travis-ci.org/thiagodnf/cardapio-ru-bot.svg?branch=master)](https://travis-ci.org/thiagodnf/cardapio-ru-bot)
-[![codecov](https://codecov.io/gh/thiagodnf/ufpr-cardapio-ru-bot/branch/master/graph/badge.svg)](https://codecov.io/gh/thiagodnf/ufpr-cardapio-ru-bot)
-
-## Como funciona?
-
-O bot acessa a página http://www.pra.ufpr.br/portal/ru/cardapio-2/ a cada hora e executa um parse para capturar o cardápio de todos os campus da universidade
+[![codecov](https://codecov.io/gh/thiagodnf/cardapio-ru-bot/branch/master/graph/badge.svg)](https://codecov.io/gh/thiagodnf/cardapio-ru-bot)
 
 ## Recursos
 
 - Ver o cardápio (café, almoço e jantar) de ontem, hoje e amanhã
 - Definir alertas para comidas
 - Supporte a todos os campus da universidade
+
+## Universidades supportadas
+
+O bot funciona com as seguintes universidades:
+
+ - Universidade Federal do Paraná (UFPR)
 
 ## Quais campus o bot monitora?
 
