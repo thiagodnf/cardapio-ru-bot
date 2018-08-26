@@ -39,7 +39,7 @@ O Bot monitora os seguintes campus:
 
 ## Como adicionar no meu Telegram?
 
-É simples! Apenas clique http://t.me/UFPRCardapioRUBot para adicionar. Uma vez adicionado você pode incluir ele em algum dos grupos que você já utiliza
+É simples! Apenas clique https://t.me/CardapioRUBot para adicionar. Uma vez adicionado você pode incluir ele em algum dos grupos que você já utiliza
 
 ## Como usar?
 
