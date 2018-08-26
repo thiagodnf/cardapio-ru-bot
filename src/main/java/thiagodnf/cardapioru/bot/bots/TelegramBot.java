@@ -1,5 +1,7 @@
-package thiagodnf.cardapioru.bot.bots.telegram;
+package thiagodnf.cardapioru.bot.bots;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -8,8 +10,11 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Component
-public class TelegramBotWithPolling extends TelegramLongPollingBot{
+public class TelegramBot extends TelegramLongPollingBot{
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(TelegramBot.class);
+
+	
 	@Value("${telegram.username}")
 	private String botUserName;
 	
@@ -22,9 +27,12 @@ public class TelegramBotWithPolling extends TelegramLongPollingBot{
 		// We check if the update has a message and the message has text
 	    if (update.hasMessage() && update.getMessage().hasText()) {
 	    
+	    	String message_text = update.getMessage().getText();
+	    	
+	    	LOGGER.info("Message Received: " + message_text);
 
 	    	// Set variables
-	        String message_text = update.getMessage().getText();
+	        
 	        long chat_id = update.getMessage().getChatId();
 
 	        SendMessage message = new SendMessage() // Create a message object object
