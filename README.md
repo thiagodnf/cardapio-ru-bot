@@ -6,7 +6,7 @@
 
 Bot para Telegram do Cardápio do RU da UFPR
 
-[![Build Status](https://travis-ci.org/thiagodnf/ufpr-cardapio-ru-bot.svg?branch=master)](https://travis-ci.org/thiagodnf/ufpr-cardapio-ru-bot)
+[![Build Status](https://travis-ci.org/thiagodnf/cardapio-ru-bot.svg?branch=master)](https://travis-ci.org/thiagodnf/cardapio-ru-bot)
 [![codecov](https://codecov.io/gh/thiagodnf/ufpr-cardapio-ru-bot/branch/master/graph/badge.svg)](https://codecov.io/gh/thiagodnf/ufpr-cardapio-ru-bot)
 
 ## Como funciona?
