@@ -1,19 +1,25 @@
 package thiagodnf.cardapioru.bot.bots;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
+
+import thiagodnf.cardapioru.bot.services.CommandService;
+import thiagodnf.cardapioru.bot.services.MessageService;
+import thiagodnf.cardapioru.bot.utils.CommandArgs;
 
 @Component
 public class TelegramBot extends TelegramLongPollingBot{
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(TelegramBot.class);
-
+	private static final Logger LOGGER = Logger.getLogger(TelegramBot.class);
 	
 	@Value("${telegram.username}")
 	private String botUserName;
@@ -21,29 +27,43 @@ public class TelegramBot extends TelegramLongPollingBot{
 	@Value("${telegram.bot.token}")
 	private String botToken;
 	
+	@Autowired
+	private MessageService messages;
+	
+	@Autowired
+	private CommandService commands;
+	
 	@Override
 	public void onUpdateReceived(Update update) {
 		
 		// We check if the update has a message and the message has text
 	    if (update.hasMessage() && update.getMessage().hasText()) {
 	    
-	    	String message_text = update.getMessage().getText();
+	    	Message m = update.getMessage();
 	    	
-	    	LOGGER.info("Message Received: " + message_text);
-
-	    	// Set variables
-	        
-	        long chat_id = update.getMessage().getChatId();
-
-	        SendMessage message = new SendMessage() // Create a message object object
-	                .setChatId(chat_id)
-	                .setText(message_text);
-	        try {
-	            execute(message); // Sending our message object to user
-	        } catch (TelegramApiException ex) {
-	            ex.printStackTrace();
-	        }
-	        
+	    	String text = m.getText();
+	    	long chatId = m.getChatId();
+	    	
+	    	LOGGER.info("Message Received: " + text);
+	    	
+	    	// For now this bot supports just commands
+			if (m.isCommand()) {
+				
+				// Parse the commands
+				CommandArgs commandArgs = CommandArgs.parse(text);
+				
+				// Execute the command and get the response
+				String response = commands.execute(chatId, commandArgs);
+				
+				// Send the message
+				sendMessageAsHTML(chatId, response);
+			} else {
+				// The message is not a command.  However we have to communicate
+				// to user s(he) should send just commands. We avoid channel or groups
+				if (m.isUserMessage()) {
+					sendMessageAsHTML(chatId, messages.getMessage("only.commands"));
+				}
+			}
 	    }
 	}
 
@@ -55,6 +75,43 @@ public class TelegramBot extends TelegramLongPollingBot{
 	@Override
 	public String getBotToken() {
 		return this.botToken;
+	}
+	
+	protected void sendMessageAsHTML(long chatId, String text) {
+		
+		// Create a message object object
+        SendMessage message = new SendMessage() 
+        		.enableHtml(true)
+                .setChatId(chatId)
+                .setText(text);
+        
+        // Send message to user
+		try {
+        	execute(message); 
+        } catch (TelegramApiException ex) {
+            LOGGER.error(ex);
+        }
+	}
+	
+	public boolean isRunning() {
+		DefaultBotSession session = new DefaultBotSession();
+
+		session.setOptions(new DefaultBotOptions());
+		session.setCallback(this);
+
+		return session.isRunning();
+	}
+	
+	public void stop() {
+		
+		LOGGER.debug("Stopping the telegram bot");
+		
+		DefaultBotSession session = new DefaultBotSession();
+
+		session.setOptions(new DefaultBotOptions());
+		session.setCallback(this);
+
+		session.stop();
 	}
 
 }

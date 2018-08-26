@@ -9,25 +9,25 @@ import thiagodnf.cardapioru.bot.services.ApiService;
 import thiagodnf.cardapioru.bot.utils.CommandArgs;
 
 @Component
-public class RuHojeCommand extends AbstractCommand {
+public class RuAmanhaCommand extends AbstractCommand {
 
 	@Autowired
 	private ApiService apiService;
 			
 	@Override
 	public String getCommand() {
-		return "ruhoje";
+		return "ruamanha";
 	}
 
 	@Override
 	public String getDescription() {
-		return "Exibe o cardápio de hoje";
+		return "Exibe o cardápio de amanhã";
 	}
 
 	@Override
 	public String getAction(User user, CommandArgs args) {
 		try {
-			return apiService.getTodaysMenuAsHTML(user.getCampus());
+			return apiService.getTomorrowsMenuAsHTML(user.getCampus());
 		} catch (RestClientException ex) {
 			ex.printStackTrace();
 			return ex.getMessage();
