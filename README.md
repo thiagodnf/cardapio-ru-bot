@@ -51,7 +51,7 @@ Você pode ver o cardápio do campus monitorado digitando os seguintes comandos.
 
 | Comando   | Descrição                   | Parâmetros  | Exemplo    |
 |-----------|-----------------------------|-------------|------------|
-|/ru        | Exibe o cardápio de hoje    | Não tem     | /ru        |
+|/ruhoje    | Exibe o cardápio de hoje    | Não tem     | /ruhoje    |
 |/ruontem   | Exibe o cardápio de ontem   | Não tem     | /ruontem   |
 |/ruamanha  | Exibe o cardápio de amanhã  | Não tem     | /ruamanha  |
 
@@ -62,7 +62,7 @@ Caso você queria ser notificado da presença de algum item em específico no ca
 | Comando       | Descrição                             | Parâmetros  | Exemplo                   |
 |---------------|---------------------------------------|-------------|---------------------------|
 |/rualerte      | Define alertas para uma comida        | [comidas]+  | /rualerte picadinho fruta |
-|/runaoalerte   | Remove uma comida da lista de alertas | [comida]    | /ru                       |
+|/runaoalerte   | Remove uma comida da lista de alertas | [comidas]+  | /runaoalerte picadinho    |
 |/rualertas     | Exibe os alertas cadastrados          | Não Tem     | /rualertas                |
 |/rusemalertas  | Remove todos os alertas               | Não Tem     | /rusemalertas             |
 
