@@ -15,7 +15,7 @@ Bot para Telegram que monitora e alerta o cardápio do RU da sua universidade
 - Definir alertas para comidas
 - Supporte a todos os campus da universidade
 
-## Universidades supportadas
+## Universidades suportadas
 
 O bot funciona com as seguintes universidades:
 
@@ -85,3 +85,7 @@ Por padrão o bot monitora o cardápio do Centro Politécnico da UFPR. Porém, v
 ## Alertas
 
 O bot é capaz de enviar notificações para os usuários. Esses alertas são enviados todos os dias 11:30 para o almoço e 17:30 para o jantar para todos os usuários que criaram alertas ([Ver comandos](#definir-alertas))
+
+## Atenção
+
+Este Bot é um produto extra-oficial e não está oficialmente vinculada à alguma universidade

@@ -29,7 +29,8 @@ public class RuAlertasCommand extends AbstractCommand {
 		
 		buffer.append("<b>")
 			.append(messages.getMessage("alerts.title"))
-			.append("</b>\n");
+			.append("</b>\n")
+			.append("\n");
 			
 		for (int i = 0; i < user.getAlerts().size(); i++) {
 			buffer.append(i + 1)

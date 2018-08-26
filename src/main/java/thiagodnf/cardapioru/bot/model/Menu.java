@@ -68,10 +68,6 @@ public class Menu {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	public String toString() {
-		return new Gson().toJson(this);
-	}
 
 	public String getUniversity() {
 		return university;
@@ -79,5 +75,18 @@ public class Menu {
 
 	public void setUniversity(String university) {
 		this.university = university;
+	}
+	
+	public String getMealAsJson(String meal) {
+
+		if (meal.equalsIgnoreCase("dinner")) {
+			return new Gson().toJson(getDinner());
+		}
+
+		return new Gson().toJson(getLunch());
+	}
+	
+	public String toString() {
+		return new Gson().toJson(this);
 	}
 }

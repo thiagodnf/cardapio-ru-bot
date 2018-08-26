@@ -3,6 +3,7 @@ package thiagodnf.cardapioru.bot.utils;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Universities {
 
@@ -23,6 +24,10 @@ public class Universities {
 		}
 		
 		return "Desconhecida";
+	}
+	
+	public static List<String> getAllUniversities(){
+		return universities.keySet().stream().collect(Collectors.toList());
 	}
 	
 	public static List<String> getCampus(String university){

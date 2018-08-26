@@ -22,6 +22,10 @@ public class UserService {
 		return userRepository.findByChatId(chatId);
 	}
 	
+	public List<User> findByCampusAndUniversity(String campus, String university) {
+		return userRepository.findByCampusAndUniversity(campus, university);
+	}
+	
 	public User save(User user) {
 		return userRepository.save(user);
 	}

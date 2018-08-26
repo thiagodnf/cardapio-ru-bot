@@ -79,6 +79,7 @@ public class CommandService {
 		buffer.append("<b>")
 			.append(messages.getMessage("available.command"))
 			.append("</b>")
+			.append("\n")
 			.append("\n");
 
 		for (String key : commands.keySet()) {

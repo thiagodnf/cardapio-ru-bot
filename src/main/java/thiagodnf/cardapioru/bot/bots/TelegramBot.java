@@ -4,13 +4,11 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import thiagodnf.cardapioru.bot.services.CommandService;
 import thiagodnf.cardapioru.bot.services.MessageService;
@@ -56,12 +54,12 @@ public class TelegramBot extends TelegramLongPollingBot{
 				String response = commands.execute(chatId, commandArgs);
 				
 				// Send the message
-				sendMessageAsHTML(chatId, response);
+				sendMessageAsHTML(String.valueOf(chatId), response);
 			} else {
 				// The message is not a command.  However we have to communicate
 				// to user s(he) should send just commands. We avoid channel or groups
 				if (m.isUserMessage()) {
-					sendMessageAsHTML(chatId, messages.getMessage("only.commands"));
+					sendMessageAsHTML(String.valueOf(chatId), messages.getMessage("only.commands"));
 				}
 			}
 	    }
@@ -77,7 +75,7 @@ public class TelegramBot extends TelegramLongPollingBot{
 		return this.botToken;
 	}
 	
-	protected void sendMessageAsHTML(long chatId, String text) {
+	public void sendMessageAsHTML(String chatId, String text) {
 		
 		// Create a message object object
         SendMessage message = new SendMessage() 
@@ -92,26 +90,4 @@ public class TelegramBot extends TelegramLongPollingBot{
             LOGGER.error(ex);
         }
 	}
-	
-	public boolean isRunning() {
-		DefaultBotSession session = new DefaultBotSession();
-
-		session.setOptions(new DefaultBotOptions());
-		session.setCallback(this);
-
-		return session.isRunning();
-	}
-	
-	public void stop() {
-		
-		LOGGER.debug("Stopping the telegram bot");
-		
-		DefaultBotSession session = new DefaultBotSession();
-
-		session.setOptions(new DefaultBotOptions());
-		session.setCallback(this);
-
-		session.stop();
-	}
-
 }
