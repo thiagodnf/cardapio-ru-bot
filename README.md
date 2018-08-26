@@ -1,5 +1,5 @@
 
-<img src="https://raw.githubusercontent.com/thiagodnf/ufpr-cardapio-ru-bot/master/img/logo.png" width="130px"/>
+<img src="https://raw.githubusercontent.com/thiagodnf/cardapio-ru-bot/master/src/main/resources/images/logo.png" width="130px"/>
 
 
 # UFPR Cardápio RU Bot
