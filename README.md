@@ -84,7 +84,7 @@ Por padrão o bot monitora o cardápio do Centro Politécnico da UFPR. Porém, v
 
 ## Alertas
 
-O bot é capaz de enviar notificações para os usuários. Esses alertas são enviados todos os dias 11:30 para o almoço e 17:30 para o jantar para todos os usuários que criaram alertas ([Ver comandos](#definir-alertas))
+O bot é capaz de enviar notificações para os usuários. Esses alertas são enviados todos os dias 11:00 para o almoço e 17:30 para o jantar para todos os usuários que criaram alertas ([Ver comandos](#definir-alertas))
 
 ## Atenção
 
