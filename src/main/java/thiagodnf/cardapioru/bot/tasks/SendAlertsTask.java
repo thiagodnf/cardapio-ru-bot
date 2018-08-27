@@ -57,7 +57,7 @@ public class SendAlertsTask {
 				
 				LOGGER.info("Processing campus " + campus);
 				
-				Menu menu = apiService.getTodaysMenu(campus);
+				Menu menu = apiService.getTodaysMenu(university, campus);
 
 				if (menu == null) {
 					continue;

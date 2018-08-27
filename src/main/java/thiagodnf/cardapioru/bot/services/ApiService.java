@@ -26,21 +26,21 @@ public class ApiService {
 		this.restTemplate = new RestTemplate();
 	}
 	
-	public Menu getYesterdaysMenu(String campus) {
-		return restTemplate.getForObject(url + campus + "/yesterday", Menu.class);
+	public Menu getYesterdaysMenu(String university, String campus) {
+		return restTemplate.getForObject(url + "/" + university + "/" + campus + "/yesterday", Menu.class);
 	}
 	
-	public Menu getTodaysMenu(String campus) {
-		return restTemplate.getForObject(url + campus + "/today", Menu.class);
+	public Menu getTodaysMenu(String university, String campus) {
+		return restTemplate.getForObject(url + "/" + university + "/" + campus +  "/today", Menu.class);
 	}
 	
-	public Menu getTomorrowsMenu(String campus) {
-		return restTemplate.getForObject(url + campus + "/tomorrow", Menu.class);
+	public Menu getTomorrowsMenu(String university, String campus) {
+		return restTemplate.getForObject(url + "/" + university + "/" + campus +  "/tomorrow", Menu.class);
 	}
 
-	public String getYesterdaysMenuAsHTML(String campus) {
+	public String getYesterdaysMenuAsHTML(String university, String campus) {
 		
-		Menu menu = getYesterdaysMenu(campus);
+		Menu menu = getYesterdaysMenu(university, campus);
 
 		if (menu == null) {
 			return messages.getMessage("unavailable.menu");
@@ -49,9 +49,9 @@ public class ApiService {
 		return Formatters.menuToString(menu);
 	}
 	
-	public String getTodaysMenuAsHTML(String campus) {
+	public String getTodaysMenuAsHTML(String university, String campus) {
 
-		Menu menu = getTodaysMenu(campus);
+		Menu menu = getTodaysMenu(university, campus);
 
 		if (menu == null) {
 			return messages.getMessage("unavailable.menu");
@@ -60,9 +60,9 @@ public class ApiService {
 		return Formatters.menuToString(menu);
 	}
 	
-	public String getTomorrowsMenuAsHTML(String campus) {
+	public String getTomorrowsMenuAsHTML(String university, String campus) {
 		
-		Menu menu = getTomorrowsMenu(campus);
+		Menu menu = getTomorrowsMenu(university, campus);
 
 		if (menu == null) {
 			return messages.getMessage("unavailable.menu");

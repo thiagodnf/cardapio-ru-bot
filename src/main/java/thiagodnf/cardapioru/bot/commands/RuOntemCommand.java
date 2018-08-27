@@ -27,7 +27,7 @@ public class RuOntemCommand extends AbstractCommand {
 	@Override
 	public String getAction(User user, CommandArgs args) {
 		try {
-			return apiService.getYesterdaysMenuAsHTML(user.getCampus());
+			return apiService.getYesterdaysMenuAsHTML(user.getUniversity(), user.getCampus());
 		} catch (RestClientException ex) {
 			ex.printStackTrace();
 			return ex.getMessage();

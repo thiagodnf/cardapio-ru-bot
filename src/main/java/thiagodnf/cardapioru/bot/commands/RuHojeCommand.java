@@ -27,7 +27,7 @@ public class RuHojeCommand extends AbstractCommand {
 	@Override
 	public String getAction(User user, CommandArgs args) {
 		try {
-			return apiService.getTodaysMenuAsHTML(user.getCampus());
+			return apiService.getTodaysMenuAsHTML(user.getUniversity(), user.getCampus());
 		} catch (RestClientException ex) {
 			ex.printStackTrace();
 			return ex.getMessage();

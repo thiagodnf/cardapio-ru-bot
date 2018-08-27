@@ -27,7 +27,7 @@ public class RuAmanhaCommand extends AbstractCommand {
 	@Override
 	public String getAction(User user, CommandArgs args) {
 		try {
-			return apiService.getTomorrowsMenuAsHTML(user.getCampus());
+			return apiService.getTomorrowsMenuAsHTML(user.getUniversity(), user.getCampus());
 		} catch (RestClientException ex) {
 			ex.printStackTrace();
 			return ex.getMessage();
