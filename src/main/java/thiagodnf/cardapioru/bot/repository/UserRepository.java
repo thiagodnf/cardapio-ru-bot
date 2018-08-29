@@ -12,5 +12,5 @@ public interface UserRepository extends MongoRepository<User, String> {
 
 	public User findByChatId(String chatId);
 
-	public List<User> findByCampusAndUniversity(String campus, String university);
+	public List<User> findByUniversityAndCampus(String university, String campus);
 }

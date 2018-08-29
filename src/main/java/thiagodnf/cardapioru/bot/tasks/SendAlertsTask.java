@@ -65,7 +65,7 @@ public class SendAlertsTask {
 				
 				String menuWithouAccents = removeAccents(menu.getMealAsJson(meal));
 				
-				List<User> users = userService.findByCampusAndUniversity(campus, university);
+				List<User> users = userService.findByUniversityAndCampus(university, campus);
 
 				for (User user : users) {
 
