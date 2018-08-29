@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import thiagodnf.cardapioru.bot.model.User;
+import thiagodnf.cardapioru.bot.services.CommandService;
 import thiagodnf.cardapioru.bot.services.MessageService;
 import thiagodnf.cardapioru.bot.services.UserService;
 import thiagodnf.cardapioru.bot.utils.CommandArgs;
@@ -30,7 +31,7 @@ public abstract class AbstractCommand {
 		this(0, 0);
 	}
 	
-	public String execute(String chatId, CommandArgs args) {
+	public String execute(CommandService commandService, String chatId, CommandArgs args) {
 
 		if (max == 0 && min == 0 & !args.getArgs().isEmpty()) {
 			return messages.getMessage("command.args.requires.zero");
@@ -50,12 +51,12 @@ public abstract class AbstractCommand {
 			user = new User(chatId);
 		}
 
-		return getAction(user, args);
+		return getAction(commandService, user, args);
 	}
 	
 	public abstract String getCommand();
 
 	public abstract String getDescription();
 
-	public abstract String getAction(User user, CommandArgs args);
+	public abstract String getAction(CommandService commandService, User user, CommandArgs args);
 }

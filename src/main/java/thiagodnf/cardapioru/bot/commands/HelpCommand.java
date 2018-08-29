@@ -1,5 +1,7 @@
 package thiagodnf.cardapioru.bot.commands;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import thiagodnf.cardapioru.bot.model.User;
@@ -7,40 +9,38 @@ import thiagodnf.cardapioru.bot.services.CommandService;
 import thiagodnf.cardapioru.bot.utils.CommandArgs;
 
 @Component
-public class RuAlertasCommand extends AbstractCommand {
-	
+public class HelpCommand extends AbstractCommand {
+
 	@Override
 	public String getCommand() {
-		return "rualertas";
+		return "help";
 	}
 
 	@Override
 	public String getDescription() {
-		return "Exibe os alertas cadastrados";
+		return "Apresenta o menu de ajuda com todos os comandos";
 	}
 
 	@Override
 	public String getAction(CommandService commandService, User user, CommandArgs args) {
 		
-		if (user.getAlerts().isEmpty()) {
-			return messages.getMessage("alerts.empty");
-		}
-		
 		StringBuffer buffer = new StringBuffer();
 		
 		buffer.append("<b>")
-			.append(messages.getMessage("alerts.title"))
+			.append(messages.getMessage("available.command"))
 			.append("</b>")
 			.append("\n");
-			
-		for (int i = 0; i < user.getAlerts().size(); i++) {
-			buffer.append(i + 1)
-				.append(". ")
-				.append(user.getAlerts().get(i))
+		
+		List<AbstractCommand> commands = commandService.getListOfCommands();
+
+		for (AbstractCommand command : commands) {
+			buffer.append("/")
+				.append(command.getCommand())
+				.append(" - ")
+				.append(command.getDescription())
 				.append("\n");
 		}
-		
+
 		return buffer.toString();
 	}
-
 }

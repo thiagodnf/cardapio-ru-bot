@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 import thiagodnf.cardapioru.bot.model.User;
+import thiagodnf.cardapioru.bot.services.CommandService;
 import thiagodnf.cardapioru.bot.utils.CommandArgs;
 
 @Component
@@ -25,7 +26,7 @@ public class RuAlerteCommand extends AbstractCommand {
 	}
 
 	@Override
-	public String getAction(User user, CommandArgs args) {
+	public String getAction(CommandService commandService, User user, CommandArgs args) {
 
 		if (args.getArgs().isEmpty()) {
 			return messages.getMessage("alerts.args.requires.list");

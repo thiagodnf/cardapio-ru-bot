@@ -11,15 +11,15 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import thiagodnf.cardapioru.bot.services.CommandService;
+import thiagodnf.cardapioru.bot.services.CommandService.AnswerCallback;
 import thiagodnf.cardapioru.bot.services.MessageService;
-import thiagodnf.cardapioru.bot.utils.CommandArgs;
 
 @Component
 public class TelegramBot extends TelegramLongPollingBot{
 
 	private static final Logger LOGGER = Logger.getLogger(TelegramBot.class);
 	
-	@Value("${telegram.username}")
+	@Value("${bot.username}")
 	private String botUserName;
 	
 	@Value("${telegram.bot.token}")
@@ -39,27 +39,25 @@ public class TelegramBot extends TelegramLongPollingBot{
 	    
 	    	Message m = update.getMessage();
 	    	
+	    	String chatId = String.valueOf(m.getChatId());
 	    	String text = m.getText();
-	    	long chatId = m.getChatId();
 	    	
 	    	LOGGER.info("Message Received: " + text);
 	    	
 	    	// For now this bot supports just commands
 			if (m.isCommand()) {
-				
-				// Parse the commands
-				CommandArgs commandArgs = CommandArgs.parse(text);
-				
-				// Execute the command and get the response
-				String response = commands.execute(chatId, commandArgs);
-				
-				// Send the message
-				sendMessageAsHTML(String.valueOf(chatId), response);
+				commands.execute(chatId, text, new AnswerCallback() {
+					
+					@Override
+					public void process(String chatId, String answer) {
+						sendMessageAsHTML(chatId, answer);
+					}
+				});
 			} else {
 				// The message is not a command.  However we have to communicate
 				// to user s(he) should send just commands. We avoid channel or groups
 				if (m.isUserMessage()) {
-					sendMessageAsHTML(String.valueOf(chatId), messages.getMessage("only.commands"));
+					sendMessageAsHTML(chatId, messages.getMessage("only.commands"));
 				}
 			}
 	    }

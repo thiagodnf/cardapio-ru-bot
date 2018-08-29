@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import thiagodnf.cardapioru.bot.model.User;
+import thiagodnf.cardapioru.bot.services.CommandService;
 import thiagodnf.cardapioru.bot.utils.CommandArgs;
 
 @Component
@@ -26,7 +27,7 @@ public class RuNaoAlerteCommand extends AbstractCommand {
 	}
 
 	@Override
-	public String getAction(User user, CommandArgs args) {
+	public String getAction(CommandService commandService, User user, CommandArgs args) {
 	
 		List<String> foundFood = new ArrayList<>();
 		List<String> notFoundFood = new ArrayList<>();

@@ -1,7 +1,5 @@
 package thiagodnf.cardapioru.bot.commands;
 
-import java.util.ArrayList;
-
 import org.springframework.stereotype.Component;
 
 import thiagodnf.cardapioru.bot.model.User;
@@ -9,25 +7,20 @@ import thiagodnf.cardapioru.bot.services.CommandService;
 import thiagodnf.cardapioru.bot.utils.CommandArgs;
 
 @Component
-public class RuSemAlertasCommand extends AbstractCommand {
+public class StartCommand extends AbstractCommand {
 
 	@Override
 	public String getCommand() {
-		return "rusemalertas";
+		return "start";
 	}
 
 	@Override
 	public String getDescription() {
-		return "Remove todos os alertas";
+		return "Exibe a mensagem de boas vindas";
 	}
 
 	@Override
 	public String getAction(CommandService commandService, User user, CommandArgs args) {
-
-		user.setAlerts(new ArrayList<>());
-		
-		userService.save(user);
-		
-		return messages.getMessage("alerts.clear.msg.success");
+		return messages.getMessage("start.command");
 	}
 }

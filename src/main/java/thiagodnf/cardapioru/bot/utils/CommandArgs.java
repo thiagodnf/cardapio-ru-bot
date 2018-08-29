@@ -38,6 +38,10 @@ public class CommandArgs {
 	public String getCommand() {
 		return command;
 	}
+	
+	public void setCommand(String command) {
+		this.command = command;
+	}
 
 	public List<String> getArgs() {
 		return args;
@@ -82,5 +86,8 @@ public class CommandArgs {
 		
 		return new CommandArgs(text, command, args);
 	}
-	
+
+	public void clearUsernameFromCommand(String botUserName) {
+		this.command = this.command.replaceAll("@" + botUserName.toLowerCase(), "");
+	}
 }

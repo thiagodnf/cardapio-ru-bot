@@ -29,11 +29,21 @@ public class User {
 	
 	private List<String> alerts;
 	
+	public User() {
+		
+	}
+	
 	public User(String chatId) {
 		this.chatId = chatId;
 		this.alerts = new ArrayList<>();
 	}
-	
+
+	public User(String university, String campus, String chatId) {
+		this.university = university;
+		this.campus = campus;
+		this.chatId = chatId;
+	}
+
 	public String getId() {
 		return id;
 	}
