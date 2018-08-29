@@ -18,7 +18,7 @@ public class Formatters {
 		buffer.append("<b>")
 			.append(dateToString(menu.getDate()))
 			.append("</b> no <b>")
-			.append(Campuses.parse(menu.getUniversity(), menu.getCampus()))
+			.append(Campuses.getCampusName(menu.getUniversity(), menu.getCampus()))
 			.append("</b>")
 			.append("\n\n")
 			.append("<i>Café da Manhã</i>\n")

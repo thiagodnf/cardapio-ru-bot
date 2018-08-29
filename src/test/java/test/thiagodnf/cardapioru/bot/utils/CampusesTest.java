@@ -32,13 +32,13 @@ public class CampusesTest {{
 		describe("given an invalid universit", () -> {
 			
 			it("returns empty one", () -> {
-				expect(Campuses.getCampus("invalid_university").isEmpty()).toBeTrue();
+				expect(Campuses.getCampuses("invalid_university").isEmpty()).toBeTrue();
 			});
 		});
 		describe("given a valid universit", () -> {
 			
-			it("returns non-empty one", () -> {
-				expect(Campuses.getCampus("ufpr").isEmpty()).toBeFalse();
+			it("returns the correct size", () -> {
+				expect(Campuses.getCampuses("ufpr").size()).toEqual(9);
 			});
 		});
 	});
@@ -57,6 +57,12 @@ public class CampusesTest {{
 				expect(Campuses.isValid("ufpr", "invalid_campus")).toBeFalse();
 			});
 		});
+		describe("given a valid campus and university", () -> {
+			
+			it("returns false", () -> {
+				expect(Campuses.isValid("ufpr", "central")).toBeTrue();
+			});
+		});
 	});
 	
 	describe("Calling parse method", () -> {
@@ -64,19 +70,19 @@ public class CampusesTest {{
 		describe("given an invalid university", () -> {
 			
 			it("returns 'Desconhecido'", () -> {
-				expect(Campuses.parse("invalid_university", "central")).toMatch("Desconhecido");
+				expect(Campuses.getCampusName("invalid_university", "central")).toMatch("Desconhecido");
 			});
 		});
 		describe("given an invalid campus", () -> {
 			
 			it("returns 'Desconhecido'", () -> {
-				expect(Campuses.parse("ufpr", "invalid_campus")).toMatch("Desconhecido");
+				expect(Campuses.getCampusName("ufpr", "invalid_campus")).toMatch("Desconhecido");
 			});
 		});
 		describe("given an valid parameters", () -> {
 			
 			it("returns 'Desconhecido'", () -> {
-				expect(Campuses.parse("ufpr", "central")).toMatch("Central");
+				expect(Campuses.getCampusName("ufpr", "central")).toMatch("Central");
 			});
 		});
 	});

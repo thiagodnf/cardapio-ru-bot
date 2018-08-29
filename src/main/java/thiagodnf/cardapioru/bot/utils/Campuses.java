@@ -29,7 +29,7 @@ public class Campuses {
 		return campuses.containsKey(university + "_" + campus);
 	}
 
-	public static String parse(String university, String campus) {
+	public static String getCampusName(String university, String campus) {
 
 		if (isValid(university, campus)) {
 			return campuses.get(university + "_" + campus);
@@ -38,7 +38,7 @@ public class Campuses {
 		return "Desconhecido";
 	}
 
-	public static List<String> getCampus(String university) {
+	public static List<String> getCampuses(String university) {
 
 		List<String> campuses = new ArrayList<>();
 

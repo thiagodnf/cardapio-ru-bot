@@ -53,7 +53,7 @@ public class SendAlertsTask {
 
 			LOGGER.info("Processing university " + university);
 			
-			for (String campus : Campuses.getCampus(university)) {
+			for (String campus : Campuses.getCampuses(university)) {
 				
 				LOGGER.info("Processing campus " + campus);
 				
@@ -86,7 +86,7 @@ public class SendAlertsTask {
 
 					if (!foundFoods.isEmpty()) {
 
-						String campusName = Campuses.parse(university, campus);
+						String campusName = Campuses.getCampusName(university, campus);
 						String found = String.join(", ", foundFoods);
 						String mealName = meal.equalsIgnoreCase("dinner") ? "jantar" : "almoço";
 

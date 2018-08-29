@@ -21,6 +21,6 @@ public class RuCampusCommand extends AbstractCommand {
 
 	@Override
 	public String getAction(User user, CommandArgs args) {
-		return messages.getMessage("campus.monitoring", Campuses.parse(user.getUniversity(), user.getCampus()));
+		return messages.getMessage("campus.monitoring", Campuses.getCampusName(user.getUniversity(), user.getCampus()));
 	}
 }

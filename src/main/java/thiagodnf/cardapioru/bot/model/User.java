@@ -1,5 +1,6 @@
 package thiagodnf.cardapioru.bot.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
@@ -27,6 +28,11 @@ public class User {
 	private String campus = "politecnico";
 	
 	private List<String> alerts;
+	
+	public User(String chatId) {
+		this.chatId = chatId;
+		this.alerts = new ArrayList<>();
+	}
 	
 	public String getId() {
 		return id;

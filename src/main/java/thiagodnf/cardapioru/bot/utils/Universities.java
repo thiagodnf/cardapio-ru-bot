@@ -31,6 +31,6 @@ public class Universities {
 	}
 	
 	public static List<String> getCampus(String university){
-		return Campuses.getCampus(university);
+		return Campuses.getCampuses(university);
 	}
 }

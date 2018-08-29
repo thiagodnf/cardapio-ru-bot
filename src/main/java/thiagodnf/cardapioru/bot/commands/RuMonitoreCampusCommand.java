@@ -42,6 +42,6 @@ public class RuMonitoreCampusCommand extends AbstractCommand {
 		
 		userService.save(user);
 		
-		return messages.getMessage("campus.msg.success", Campuses.parse(university, campus));
+		return messages.getMessage("campus.msg.success", Campuses.getCampusName(university, campus));
 	}
 }

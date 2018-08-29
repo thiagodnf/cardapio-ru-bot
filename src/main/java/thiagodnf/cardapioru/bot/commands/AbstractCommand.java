@@ -47,7 +47,7 @@ public abstract class AbstractCommand {
 		User user = userService.findByChatId(chatId);
 
 		if (user == null) {
-			return messages.getMessage("unrecognized.user");
+			user = new User(chatId);
 		}
 
 		return getAction(user, args);
