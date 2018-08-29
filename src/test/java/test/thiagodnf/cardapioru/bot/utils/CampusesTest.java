@@ -29,6 +29,17 @@ public class CampusesTest {{
 	
 	describe("Calling getCampus method", () -> {
 		
+		describe("given an null or empty university", () -> {
+			
+			it("throws an exception", () -> {
+				expect(() -> {
+					Campuses.getCampuses(null);
+				}).toThrow(IllegalArgumentException.class);
+				expect(() -> {
+					Campuses.getCampuses("");
+				}).toThrow(IllegalArgumentException.class);
+			});
+		});
 		describe("given an invalid universit", () -> {
 			
 			it("returns empty one", () -> {
@@ -44,7 +55,29 @@ public class CampusesTest {{
 	});
 	
 	describe("Calling isValid method", () -> {
-		
+
+		describe("given an null or empty university", () -> {
+			
+			it("throws an exception", () -> {
+				expect(() -> {
+					Campuses.isValid(null, "central");
+				}).toThrow(IllegalArgumentException.class);
+				expect(() -> {
+					Campuses.isValid("", "central");
+				}).toThrow(IllegalArgumentException.class);
+			});
+		});
+		describe("given an null or empty campus", () -> {
+			
+			it("throws an exception", () -> {
+				expect(() -> {
+					Campuses.isValid("ufpr", null);
+				}).toThrow(IllegalArgumentException.class);
+				expect(() -> {
+					Campuses.isValid("ufpr", "");
+				}).toThrow(IllegalArgumentException.class);
+			});
+		});
 		describe("given an invalid university", () -> {
 			
 			it("returns false", () -> {
@@ -65,8 +98,30 @@ public class CampusesTest {{
 		});
 	});
 	
-	describe("Calling parse method", () -> {
+	describe("Calling getCampusName method", () -> {
 		
+		describe("given an null or empty university", () -> {
+			
+			it("throws an exception", () -> {
+				expect(() -> {
+					Campuses.getCampusName(null, "central");
+				}).toThrow(IllegalArgumentException.class);
+				expect(() -> {
+					Campuses.getCampusName("", "central");
+				}).toThrow(IllegalArgumentException.class);
+			});
+		});
+		describe("given an null or empty campus", () -> {
+			
+			it("throws an exception ", () -> {
+				expect(() -> {
+					Campuses.getCampusName("ufpr", null);
+				}).toThrow(IllegalArgumentException.class);
+				expect(() -> {
+					Campuses.getCampusName("ufpr", "");
+				}).toThrow(IllegalArgumentException.class);
+			});
+		});
 		describe("given an invalid university", () -> {
 			
 			it("returns 'Desconhecido'", () -> {
