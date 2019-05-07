@@ -103,6 +103,6 @@ public class TelegramBot extends TelegramWebhookBot{
 
 	@Override
 	public String getBotPath() {
-		return "/bot"+botToken;
+		return "bot"+botToken;
 	}
 }
