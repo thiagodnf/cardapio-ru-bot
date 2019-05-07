@@ -94,6 +94,8 @@ public class TelegramBot extends TelegramWebhookBot{
 	@Override
 	public BotApiMethod onWebhookUpdateReceived(Update update) {
 		
+		System.out.println("oi");
+		
 		System.out.println(update);
 		
 		return null;
@@ -101,6 +103,6 @@ public class TelegramBot extends TelegramWebhookBot{
 
 	@Override
 	public String getBotPath() {
-		return "teste";
+		return "/bot"+botToken;
 	}
 }
