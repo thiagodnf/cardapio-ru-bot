@@ -24,7 +24,7 @@ public class MainController {
 	@Autowired
 	private TelegramBot telegramBot;
 	
-	@RequestMapping(value = "/callback/${TELEGRAM_TOKEN}", method = RequestMethod.POST)
+	@RequestMapping(value = "/callback/${telegram.bot.token}", method = RequestMethod.POST)
 	@ResponseBody
 	public BotApiMethod<?> onUpdateReceived(@RequestBody Update update) {
 		
