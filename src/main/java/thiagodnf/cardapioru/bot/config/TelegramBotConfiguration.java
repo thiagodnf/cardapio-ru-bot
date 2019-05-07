@@ -36,11 +36,11 @@ public class TelegramBotConfiguration {
 		
 		System.out.println(externalURL);
 		
-		TelegramBotsApi bot = new TelegramBotsApi(externalURL, internalURL);
+//		TelegramBotsApi bot = new TelegramBotsApi(externalURL, internalURL);
 //		
-//		TelegramBotsApi bot = new TelegramBotsApi();
+		TelegramBotsApi bot = new TelegramBotsApi();
 		
-		bot.registerBot(new TelegramBot());
+		//bot.registerBot(new TelegramBot());
 		
 		return bot;
 	}
