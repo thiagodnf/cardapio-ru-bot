@@ -111,13 +111,4 @@ public class TelegramBot extends TelegramWebhookBot{
 	public String getBotPath() {
 		return botToken;
 	}
-	
-	@Override
-	public void setWebhook(String url, String publicCertificatePath) throws TelegramApiRequestException {
-		
-		System.out.println(url);
-		
-		
-		WebhookUtils.setWebhook(this, url, publicCertificatePath);
-	}
 }
