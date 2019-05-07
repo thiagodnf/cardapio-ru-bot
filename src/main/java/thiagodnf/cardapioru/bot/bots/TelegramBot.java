@@ -96,23 +96,26 @@ public class TelegramBot extends TelegramWebhookBot{
 	@Override
 	public BotApiMethod onWebhookUpdateReceived(Update update) {
 		
+		
 		System.out.println("oi");
 		
 		System.out.println(update);
 		
+		if (update != null) {
+			onUpdateReceived(update);
+		}
 		return null;
 	}
 
 	@Override
 	public String getBotPath() {
-		return "bot"+botToken;
+		return botToken;
 	}
 	
 	@Override
 	public void setWebhook(String url, String publicCertificatePath) throws TelegramApiRequestException {
 		
 		System.out.println(url);
-		System.out.println(publicCertificatePath);
 		
 		
 		WebhookUtils.setWebhook(this, url, publicCertificatePath);
