@@ -27,10 +27,6 @@ public class MainController {
 	@RequestMapping(value = "/callback/bot${telegram.bot.token}", method = RequestMethod.POST)
 	@ResponseBody
 	public BotApiMethod<?> onUpdateReceived(@RequestBody Update update) {
-		
-		System.out.println("oi");
-		System.out.println(update);
-		
 		return telegramBot.onWebhookUpdateReceived(update);
 	}
 }

@@ -96,14 +96,10 @@ public class TelegramBot extends TelegramWebhookBot{
 	@Override
 	public BotApiMethod onWebhookUpdateReceived(Update update) {
 		
-		
-		System.out.println("oi");
-		
-		System.out.println(update);
-		
 		if (update != null) {
 			onUpdateReceived(update);
 		}
+		
 		return null;
 	}
 
