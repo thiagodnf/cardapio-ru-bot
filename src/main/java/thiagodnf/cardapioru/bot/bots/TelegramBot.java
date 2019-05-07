@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.bots.TelegramWebhookBot;
+import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -15,7 +17,7 @@ import thiagodnf.cardapioru.bot.services.CommandService.AnswerCallback;
 import thiagodnf.cardapioru.bot.services.MessageService;
 
 @Component
-public class TelegramBot extends TelegramLongPollingBot{
+public class TelegramBot extends TelegramWebhookBot{
 
 	private static final Logger LOGGER = Logger.getLogger(TelegramBot.class);
 	
@@ -31,7 +33,7 @@ public class TelegramBot extends TelegramLongPollingBot{
 	@Autowired
 	private CommandService commands;
 	
-	@Override
+	//@Override
 	public void onUpdateReceived(Update update) {
 		
 		// We check if the update has a message and the message has text
@@ -87,5 +89,18 @@ public class TelegramBot extends TelegramLongPollingBot{
         } catch (TelegramApiException ex) {
             LOGGER.error(ex);
         }
+	}
+
+	@Override
+	public BotApiMethod onWebhookUpdateReceived(Update update) {
+		
+		System.out.println(update);
+		
+		return null;
+	}
+
+	@Override
+	public String getBotPath() {
+		return "";
 	}
 }
