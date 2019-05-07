@@ -15,6 +15,8 @@ import org.telegram.telegrambots.meta.generics.LongPollingBot;
 import org.telegram.telegrambots.meta.generics.WebhookBot;
 import org.telegram.telegrambots.starter.TelegramBotInitializer;
 
+import thiagodnf.cardapioru.bot.bots.TelegramBot;
+
 /**
  * #TelegramBotsApi added to spring context as well
  */
@@ -38,7 +40,7 @@ public class TelegramBotConfiguration {
 //		
 //		TelegramBotsApi bot = new TelegramBotsApi();
 		
-	
+		bot.registerBot(new TelegramBot());
 		
 		return bot;
 	}
